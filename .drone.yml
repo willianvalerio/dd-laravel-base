@@ -1,12 +1,8 @@
 pipeline:
-  build:
-    image: ubuntu
-    when:
-      branch:
-      - main
   publish:
     image: plugins/docker
     repo: willianvalerio/dd-php
+    auto_tag: true
     username:
       from_secret: DOCKER_USERNAME
     password: 
