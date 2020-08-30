@@ -1,0 +1,16 @@
+pipeline:
+  build:
+    image: ubuntu
+    when:
+      branch:
+      - main
+  publish:
+    image: plugins/docker
+    repo: willianvalerio/dd-php
+    username:
+      from_secret: DOCKER_USERNAME
+    password: 
+      from_secret: DOCKER_PASSWORD
+    when:
+      branch:
+      - main
