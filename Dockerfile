@@ -26,7 +26,7 @@ ENV MONGO_VERSION 1.5.5
 RUN pecl install -o -f mongodb-${MONGO_VERSION} && docker-php-ext-enable mongodb
 
 # Install Datadog Tracer
-ENV DD_TRACE_VERSION 0.48.0
+ENV DD_TRACE_VERSION 0.48.1
 RUN curl -LO https://github.com/DataDog/dd-trace-php/releases/download/${DD_TRACE_VERSION}/datadog-php-tracer_${DD_TRACE_VERSION}_amd64.deb && \
     dpkg -i datadog-php-tracer_${DD_TRACE_VERSION}_amd64.deb && \
     rm -f datadog-php-tracer_${DD_TRACE_VERSION}_amd64.deb
