@@ -19,7 +19,8 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Install REDIS  extension
-RUN pecl install -o -f redis && docker-php-ext-enable redis
+ENV REDIS_VERSION 5.2.2
+RUN pecl install -o -f redis-${REDIS_VERSION} && docker-php-ext-enable redis
 
 # Install MongoDB extension
 ENV MONGO_VERSION 1.5.5
